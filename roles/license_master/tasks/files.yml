@@ -8,4 +8,4 @@
 - name: copy splunk binary
   tags:
    - install
-  copy: src=var/tmp/splunk/{{splunk_binary}} dest=/var/tmp/splunk owner=root group=root mode=775 
+  copy: src=/home/ansible/ansible-splunk-simple/playbooks/splunk_binaries/{{splunk_binary}} dest=/var/tmp/splunk owner=root group=root mode=775 

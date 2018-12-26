@@ -8,7 +8,7 @@
   become_method: sudo
   vars:
     # splunk binary to install
-    splunk_binary: 'splunk-6.2.0-237341-Linux-x86_64.tgz'
+    splunk_binary: 'splunk-7.2.3-06d57c595b80-linux-2.6-amd64.debz'
 
   roles:
     - common
