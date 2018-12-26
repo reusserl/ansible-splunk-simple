@@ -3,7 +3,7 @@
 - name: install splunk binary
   tags:
    - install
-  apt: deb=/var/tmp/splunk/{{splunk_binary}} 
+  apt: deb=/tmp/splunk/{{splunk_binary}} 
 
 - name: accept license
   tags:
