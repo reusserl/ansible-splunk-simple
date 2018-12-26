@@ -3,6 +3,8 @@
 
 - name: apply common configuration to all nodes
   hosts: splunk-prod-forwarders
+  vars:
+    - splunk_binary: 'splunkforwarder-7.2.3-06d57c595b80-linux-2.6-amd64.deb'
   become: yes
   become_user: root
   become_method: sudo
