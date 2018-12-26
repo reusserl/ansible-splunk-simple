@@ -6,7 +6,6 @@
    - install
   apt: deb=/var/tmp/splunk/{{splunk_binary}} 
 
-
 - name: accept license
   tags:
    - install
@@ -15,4 +14,4 @@
 - name: enable init script
   tags:
    - install
-  shell: /opt/splunk/bin/splunk enable boot-start 
+  shell: /opt/splunk/bin/splunk enable boot-start -user splunk 

@@ -26,3 +26,4 @@ splunk_ca: 'cert.pem'
 #Splunk server key for splunk web. Located under playbooks/splunk_creds/
 splunk_pem: 'server-key.pem'
 
+deploy_server: 'https://10.0.1.60:8089'

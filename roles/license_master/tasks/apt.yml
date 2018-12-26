@@ -6,7 +6,6 @@
    - install
   apt: deb=/var/tmp/splunk/{{splunk_binary}} 
 
-
 - name: accept license
   tags:
    - install
