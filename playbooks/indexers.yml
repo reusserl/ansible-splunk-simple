@@ -2,9 +2,10 @@
 # This playbook deploys all sub playbooks
 
 - name: apply common configuration to all nodes
-  hosts: indexer
-  user: root
-
+  hosts: splunk-prod-indexer
+  become: yes
+  become_user: root
+  become_method: sudo
   roles:
     - common
     - indexer
