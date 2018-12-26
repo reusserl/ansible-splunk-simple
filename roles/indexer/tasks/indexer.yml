@@ -13,7 +13,7 @@
 - name: enable init script
   tags:
    - install
-  shell: /opt/splunk/bin/splunk enable boot-start 
+  shell: /opt/splunk/bin/splunk enable boot-start -user splunk
 
 - name: configure phone home
   tags:

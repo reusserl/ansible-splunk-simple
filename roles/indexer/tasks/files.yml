@@ -11,3 +11,11 @@
   get_url:
     url: https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=7.2.3&product=splunk&filename=splunk-7.2.3-06d57c595b80-linux-2.6-amd64.deb&wget=true
     dest: /tmp/splunk/splunk-7.2.3-06d57c595b80-linux-2.6-amd64.deb
+
+- name: copy auth.conf
+  become: yes
+  become_user: splunk
+  become_method: splunk
+  template: src=opt/splunk/etc/system/local/user-seed.conf dest=/opt/splunk/etc/system/local/user-seed.conf owner=splunk group=splunk mode=600 
+  tags:
+   - install
