@@ -5,8 +5,13 @@
    - install
   apt: deb=/tmp/splunk/{{splunk_binary}}
 
-- name: copy auth.conf
+- name: copy user-seed.conf
   template: src=opt/splunk/etc/system/local/user-seed.conf dest=/opt/splunk/etc/system/local/user-seed.conf owner=splunk group=splunk mode=600 
+  tags:
+   - install
+
+- name: copy deploymentclient.conf
+  template: src=opt/splunk/etc/system/local/deploymentclient.conf dest=/opt/splunk/etc/system/local/deploymentclient.conf owner=splunk group=splunk mode=600 
   tags:
    - install
 
@@ -19,8 +24,3 @@
   tags:
    - install
   shell: /opt/splunk/bin/splunk enable boot-start -user splunk
-
-- name: configure phone home
-  tags:
-   - install
-  shell: /opt/splunk/bin/splunk set deploy-poll {{deploy_server}}

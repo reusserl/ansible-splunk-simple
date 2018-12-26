@@ -5,7 +5,7 @@
   hosts: splunk-prod-indexer
   vars:
     - splunk_binary: 'splunk-7.2.3-06d57c595b80-linux-2.6-amd64.deb'
-    - deploy_server: 'https://10.0.1.60:8089'
+    - deploy_server: '10.0.1.60:8089'
   become: yes
   become_user: root
   become_method: sudo
