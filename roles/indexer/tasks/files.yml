@@ -5,7 +5,10 @@
    - install
   file: path=/tmp/splunk owner=root group=root mode=775 state=directory 
 
-- name: copy splunk binary
+- name: get splunk binary
   tags:
    - install
-  copy: src=/home/ansible/ansible-splunk-simple/playbooks/splunk_binaries/{{splunk_binary}} dest=/tmp/splunk owner=root group=root mode=775 
+  get_url:
+    url: https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=7.2.3&product=splunk&filename=splunk-7.2.3-06d57c595b80-linux-2.6-amd64.deb&wget=true
+    dest: /tmp/splunk/splunk-7.2.3-06d57c595b80-linux-2.6-amd64.deb
+    checksum: md5:097894a3f9c72992988ef753c4421a85
