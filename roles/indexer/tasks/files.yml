@@ -13,9 +13,6 @@
     dest: /tmp/splunk/splunk-7.2.3-06d57c595b80-linux-2.6-amd64.deb
 
 - name: copy auth.conf
-  become: yes
-  become_user: splunk
-  become_method: sudo
   template: src=opt/splunk/etc/system/local/user-seed.conf dest=/opt/splunk/etc/system/local/user-seed.conf owner=splunk group=splunk mode=600 
   tags:
    - install
