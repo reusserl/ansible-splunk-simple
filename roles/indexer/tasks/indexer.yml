@@ -3,7 +3,12 @@
 - name: install splunk binary
   tags:
    - install
-  apt: deb=/tmp/splunk/{{splunk_binary}} 
+  apt: deb=/tmp/splunk/{{splunk_binary}}
+
+- name: copy auth.conf
+  template: src=opt/splunk/etc/system/local/user-seed.conf dest=/opt/splunk/etc/system/local/user-seed.conf owner=splunk group=splunk mode=600 
+  tags:
+   - install
 
 - name: accept license
   tags:
