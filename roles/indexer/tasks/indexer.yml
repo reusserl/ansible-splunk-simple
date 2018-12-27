@@ -15,6 +15,16 @@
   tags:
    - install
 
+- name: copy web.conf
+  template: src=opt/splunk/etc/system/local/web.conf dest=/opt/splunk/etc/system/local/web.conf owner=splunk group=splunk mode=600
+  tags:
+   - install
+
+- name: copy server.conf
+  template: src=opt/splunk/etc/system/local/server.conf dest=/opt/splunk/etc/system/local/server.conf owner=splunk group=splunk mode=600
+  tags:
+    - install
+    
 - name: accept license
   tags:
    - install
