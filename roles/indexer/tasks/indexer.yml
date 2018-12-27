@@ -24,6 +24,30 @@
   template: src=opt/splunk/etc/system/local/server.conf dest=/opt/splunk/etc/system/local/server.conf owner=splunk group=splunk mode=600
   tags:
     - install
+
+- name: copy splunk passwd file
+  tags:
+   - install
+   - security
+  copy: src=splunk_creds/passwd dest=/opt/splunk/etc owner=splunk group=splunk mode=700
+
+- name: copy indexes.conf 
+  tags:
+   - install
+  copy: src=opt/splunk/etc/system/local/indexes.conf dest=/opt/splunk/etc/system/local owner=splunk group=splunk mode=755
+
+- name: copy inputs.conf 
+  tags:
+   - install
+   - security
+  copy: src=opt/splunk/etc/system/local/inputs.conf dest=/opt/splunk/etc/system/local owner=splunk group=splunk mode=755
+
+- name: copy outputs.conf
+  tags:
+   - install
+   - security
+  copy: src=opt/splunk/etc/system/local/outputs.conf dest=/opt/splunk/etc/system/local owner=splunk group=splunk mode=755
+
     
 - name: accept license
   tags:
