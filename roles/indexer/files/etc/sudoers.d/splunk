@@ -1,4 +1,4 @@
-splunk ALL=(splunk) NOPASSWD: /usr/bin/systemctl restart Splunkd.service
-splunk ALL=(splunk) NOPASSWD: /usr/bin/systemctl stop Splunkd.service
-splunk ALL=(splunk) NOPASSWD: /usr/bin/systemctl start Splunkd.service
-splunk ALL=(splunk) NOPASSWD: /usr/bin/systemctl status Splunkd.service
+splunk ALL=(splunk) NOPASSWD: /bin/systemctl restart Splunkd.service
+splunk ALL=(splunk) NOPASSWD: /bin/systemctl stop Splunkd.service
+splunk ALL=(splunk) NOPASSWD: /bin/systemctl start Splunkd.service
+splunk ALL=(splunk) NOPASSWD: /bin/systemctl status Splunkd.service
