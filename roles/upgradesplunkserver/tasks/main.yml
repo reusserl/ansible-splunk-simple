@@ -1,0 +1,29 @@
+---
+# tasks file for upgradesplunkserver
+
+  - include_vars: "splunk-server-version.yml"
+  - include_vars: "splunk-server-package-{{ ansible_os_family  }}.yml"
+
+  - name: test for manifest file
+    stat: path="{{ splunkservermanifest }}"
+    register: manifest
+    always_run: yes
+
+  - block: 
+
+    - name: download splunkserver package
+  get_url:
+    url: "https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version={{ splunkserverversion-nohash }}&product=splunk&filename=splunk-{{ splunkserverversion }}-linux-2.6-amd64.deb&wget=true"
+    dest: "{{ temppath }}/splunk-{{ splunkserverversion }}-linux-2.6-amd64.deb"
+
+    - name: install splunk deb package
+      apt: deb="{{ temppath }}/splunk-{{ splunkserverversion }}-linux-2.6-amd64.deb"
+           state="present"
+      when: ansible_os_family == "Debian"
+
+    - name: splunk license acceptance
+      command:  "{{ splunkbin }} start --accept-license --answer-yes --no-prompt
+"
+      notify: restart_splunk
+
+    when: not manifest.stat.exists
