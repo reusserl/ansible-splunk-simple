@@ -2,3 +2,4 @@ splunk ALL=(ALL:ALL) NOPASSWD: /bin/systemctl restart Splunkd.service
 splunk ALL=(ALL:ALL) NOPASSWD: /bin/systemctl stop Splunkd.service
 splunk ALL=(ALL:ALL) NOPASSWD: /bin/systemctl start Splunkd.service
 splunk ALL=(ALL:ALL) NOPASSWD: /bin/systemctl status Splunkd.service
+splunk ALL=(ALL:ALL) NOPASSWD: /opt/splunk/bin/splunk
