@@ -52,7 +52,7 @@
 - name: accept license
   tags:
    - install
-  shell: /opt/splunk/bin/splunk start --accept-license 
+  shell: sudo -u splunk /opt/splunk/bin/splunk start --accept-license 
 
 - name: enable init script
   tags:
