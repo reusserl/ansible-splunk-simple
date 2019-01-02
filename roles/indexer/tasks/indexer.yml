@@ -48,11 +48,6 @@
    - security
   copy: src=opt/splunk/etc/system/local/outputs.conf dest=/opt/splunk/etc/system/local owner=splunk group=splunk mode=755
 
-- name: copy splunk sudoers
-  template: src=etc/sudoers.d/splunk dest=/etc/sudoers.d/splunk owner=root group=root mode=440
-  tags:
-    - install
-
 - name: accept license
   tags:
    - install
@@ -62,3 +57,8 @@
   tags:
    - install
   shell: /opt/splunk/bin/splunk enable boot-start -user splunk
+
+- name: copy splunk sudoers
+  template: src=etc/sudoers.d/splunk dest=/etc/sudoers.d/splunk owner=root group=root mode=440
+  tags:
+    - install
